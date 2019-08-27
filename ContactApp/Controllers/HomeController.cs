@@ -23,16 +23,26 @@ namespace ContactApp.Controllers
 
         public ViewResult Details(int id)
         {
-            return View(contactRepository.getContact(id));
+            Contact contact = contactRepository.getContact(id);
+            if (contact != null)
+            {
+                return View(contactRepository.getContact(id));
+            }
+            else
+            {
+                return View("NotFound",id);
+            }
         }
 
         [HttpGet]
         public ViewResult Create()
         {
+            ViewBag.Title = "Create Contact";
             return View();
         }
         public ViewResult Update(int id)
         {
+            ViewBag.Title = "Edit Contact";
             return View("Create",contactRepository.getContact(id));
         }
         public IActionResult Delete(int id)

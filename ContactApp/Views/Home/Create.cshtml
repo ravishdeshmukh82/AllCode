@@ -1,6 +1,6 @@
 ﻿@model Contact
 @{ 
-    ViewBag.Title = "Create Contact";
+    //ViewBag.Title = "Create Contact";
     var Cid = 0;
     var btnText = "Create";
     if (Model!= null)
@@ -15,7 +15,7 @@
 <form enctype="multipart/form-data" asp-controller="home" asp-action="create" method="post" class="mt-3">
     <div class="card">
         <div class="card-header"> 
-            <h4>Create Contact</h4>
+            <h4>@ViewBag.Title</h4>
         </div>
         <div class="card-body">
             <div class="form-group row mb-2">

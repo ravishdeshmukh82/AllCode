@@ -37,6 +37,11 @@ namespace ContactApp
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithRedirects("/Error/{0}");
+            }
             app.UseStaticFiles();
             app.UseMvc(routes => {
                 routes.MapRoute("default","{controller=Home}/{action=Index}/{id?}");
