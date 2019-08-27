@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Contact>
+
+@{ 
+    ViewBag.Title = "Contact List";
+
+}
+
+<div class="card-deck m-2">
+    @foreach (var contact in Model)
+    {
+        <div class="row text-center">
+            <div class="card m-4">
+                <div class="card-header">
+                    <h3>@contact.FirstName @contact.LastName</h3>
+                </div>
+                <img src="~/images/NoImage.jpg" class="card-img-top imageThumbnail" asp-append-version="true" />
+                <div class="card-footer text-center">
+                    <a asp-controller="home" asp-action="details" asp-route-id="@contact.Id" class="btn btn-primary m-1">View</a>
+                    <a asp-controller="home" asp-action="Update" asp-route-id="@contact.Id" class="btn btn-primary m-1">Edit</a>
+                    <a href="#" class="btn btn-primary m-1">Delete</a>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
