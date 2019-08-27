@@ -8,17 +8,19 @@ namespace ContactApp.Models
 {
     public class Contact
     {
-        public int Id { get; set; }
-        //[Required]
-        //[MaxLength(50, ErrorMessage = "First Name field should not exceed 50 characters")]
+        private int _id=0;
+
+        public int Id { get => _id; set => _id = value; }
+        [Required]
+        [MaxLength(50, ErrorMessage = "First Name field should not exceed 50 characters")]
         public string FirstName { get; set; }
-       // [Required]
-       // [MaxLength(50, ErrorMessage = "Last Name field should not exceed 50 characters")]
+        [Required]
+        [MaxLength(50, ErrorMessage = "Last Name field should not exceed 50 characters")]
         public string LastName { get; set; }
-        //[Required]
-        //[RegularExpression(@"[\w-]+@([\w-]+\.)+[\w-]+", ErrorMessage = "Invalid Mail")]
+        [Required]
+        [RegularExpression(@"[\w-]+@([\w-]+\.)+[\w-]+", ErrorMessage = "Invalid Mail")]
         public string Email { get; set; }
-        //[Required]
+        [Required]
         public string PhoneNo { get; set; }
         public string Status { get; set; }
     }

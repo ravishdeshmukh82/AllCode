@@ -38,7 +38,7 @@ namespace ContactApp.Controllers
         [HttpPost]
         public IActionResult Create(Contact contact)
         {
-            contact.Status = contact.Status ?? "InActive";
+            //contact.Id = contact.Id ?? 0;
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
