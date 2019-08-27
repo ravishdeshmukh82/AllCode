@@ -35,6 +35,12 @@ namespace ContactApp.Controllers
         {
             return View("Create",contactRepository.getContact(id));
         }
+        public IActionResult Delete(int id)
+        {
+            
+            contactRepository.deleteContact(id);
+           return RedirectToAction("index");
+        }
         [HttpPost]
         public IActionResult Create(Contact contact)
         {
